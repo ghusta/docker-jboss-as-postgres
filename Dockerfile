@@ -21,11 +21,11 @@ RUN sed -i s/%POSTGRESQL-JAR-FILENAME%/$JDBC_JAR_FILE/g $JBOSS_HOME/modules/org/
 # * https://docs.jboss.org/author/display/AS71/DataSource+configurationhttps://docs.jboss.org/author/display/AS71/DataSource+configuration
 # * https://goldmann.pl/blog/2014/07/23/customizing-the-configuration-of-the-wildfly-docker-image/
 ###############################################################################
-ADD jboss-cli/ ./jboss-cli/
+ADD jboss-cli/ /tmp/jboss-cli/
 #RUN $JBOSS_HOME/bin/jboss-cli.sh --file=jboss-cli/add-driver.cli
 #RUN ["chmod", "u+x", "./jboss-cli/execute.sh"]
 #RUN chmod +x ./jboss-cli/execute.sh
-RUN ./jboss-cli/execute.sh
+RUN /tmp/jboss-cli/execute.sh
 
 CMD ["/opt/jboss/jboss-as/bin/standalone.sh", "-b", "0.0.0.0"]
 
