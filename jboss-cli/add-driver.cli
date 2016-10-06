@@ -1,0 +1,16 @@
+# SEE EXAMPLES :
+# https://docs.jboss.org/author/display/AS71/CLI+Recipes
+# http://www.mastertheboss.com/jboss-server/jboss-datasource/configuring-a-datasource-with-postgresql-and-jboss-wildfly
+
+# Mark the commands below to be run as a batch
+batch
+
+# Module Installation
+#module add --name=org.postgres --resources=/tmp/postgresql-9.3-1101.jdbc41.jar --dependencies=javax.api,javax.transaction.api
+
+# Add PostgreSQL driver
+/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=org.postgresql.jdbc,driver-class-name=org.postgresql.Driver)
+#/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=org.postgresql.jdbc,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
+
+# Execute the batch
+run-batch
