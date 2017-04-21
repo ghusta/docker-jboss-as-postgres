@@ -5,9 +5,9 @@ MAINTAINER Guillaume Husta (@ghusta)
 ###############################################################################
 # DRIVER : https://jdbc.postgresql.org/download.html#current
 #  TYPE  : JDBC41 Postgresql Driver for Java 7
-#   DL   : https://jdbc.postgresql.org/download/postgresql-9.4.1211.jre7.jar
+#   DL   : https://jdbc.postgresql.org/download/postgresql-9.4.1212.jre7.jar
 ###############################################################################
-ENV JDBC_JAR_FILE=postgresql-9.4.1211.jre7.jar
+ENV JDBC_JAR_FILE=postgresql-9.4.1212.jre7.jar
 WORKDIR /opt/jboss
 RUN curl -O https://jdbc.postgresql.org/download/${JDBC_JAR_FILE} \
     && mkdir -p $JBOSS_HOME/modules/org/postgresql/jdbc/main \
